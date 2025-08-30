@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://7be80i5qpqkb"]
+
+[ext_resource type="Script" uid="uid://bttvyu1cb0w1e" path="res://script/inventory_item.gd" id="1_24ged"]
+[ext_resource type="Shape2D" uid="uid://bx8n6ko50jxdq" path="res://resource/inventory_item/honey/honey_collsion_shape.tres" id="1_ft01i"]
+[ext_resource type="Texture2D" uid="uid://bj8y7jxo2djya" path="res://assets/Items/Food/Honey.png" id="2_6x7rf"]
+
+[resource]
+script = ExtResource("1_24ged")
+texture = ExtResource("2_6x7rf")
+collsion_shape = ExtResource("1_ft01i")
+name = "Honey"

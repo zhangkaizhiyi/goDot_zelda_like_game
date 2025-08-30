@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=5 format=3 uid="uid://cdsfstjn60g3p"]
+
+[ext_resource type="Script" uid="uid://c2pdlbotitrbd" path="res://script/weapon_item.gd" id="1_22v42"]
+[ext_resource type="Shape2D" uid="uid://b56d2fjc3ibj5" path="res://resource/inventory_item/sword/sword_collsion_shape.tres" id="1_lernb"]
+[ext_resource type="Texture2D" uid="uid://derx5lmbbpsfj" path="res://assets/Items/Weapons/Sword2/Sprite.png" id="3_ucnlk"]
+[ext_resource type="Texture2D" uid="uid://wdcnvl6l3kck" path="res://assets/Items/Weapons/Sword2/SpriteInHand.png" id="4_ucnlk"]
+
+[resource]
+script = ExtResource("1_22v42")
+texture_in_hand = ExtResource("4_ucnlk")
+texture_rotation_degress_left = 90.0
+texture_rotation_degress_right = 270.0
+texture_rotation_degress_front = 0.0
+texture_rotation_degress_back = 180.0
+texture_position_left = Vector2(-13, 4)
+texture_position_right = Vector2(13, 4)
+texture_position_front = Vector2(-3, 13)
+texture_position_back = Vector2(-3, -13)
+texture = ExtResource("3_ucnlk")
+collsion_shape = ExtResource("1_lernb")
+name = "Sward"
