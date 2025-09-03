@@ -7,14 +7,19 @@ enum EnemyState{
 }
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var health_system: HealthSystem = $HealthSystem
+
 
 @export var move_path_array:Array[Marker2D];
 @export var speed = 10;
 @export var current_target_index = 0;
 @export var face_direction:Vector2;
 @export var current_state = EnemyState.walk;
+@export var damage:int = 10;
 
 var wait_timer:Timer;
+const PICKUP_ITEM = preload("res://scene/pickupItem/pickup_item.tscn")
 
 
 func _ready() -> void:
@@ -23,6 +28,10 @@ func _ready() -> void:
 	wait_timer.one_shot = true;
 	add_child(wait_timer);
 	wait_timer.timeout.connect(on_wait_timer_timeout);
+	progress_bar.max_value = health_system.max_health;
+	progress_bar.value = health_system.health;
+	progress_bar.visible = false;
+	health_system.die.connect(on_die);
 
 func _physics_process(delta: float) -> void:
 	var distance = global_position.distance_to(move_path_array[current_target_index].global_position);
@@ -41,7 +50,10 @@ func _physics_process(delta: float) -> void:
 	velocity = speed * face_direction;
 	move_and_slide();
 		
-	
+func apply_damage(damage:int):
+	progress_bar.visible = true;
+	health_system.apply_damage(damage);
+	progress_bar.value = health_system.health;
 	
 
 func on_wait_timer_timeout():
@@ -95,3 +107,17 @@ func play_idle_animate(direction:Vector2):
 			animated_sprite_2d.play('idle_back')
 		else:
 			animated_sprite_2d.play('idle_front')
+
+func on_die():
+	animated_sprite_2d.play('die');
+	await animated_sprite_2d.animation_finished
+	queue_free();
+	var pickup_item:Pickup = PICKUP_ITEM.instantiate();
+	pickup_item.inventory_item = load("res://resource/inventory_item/gold/gold_inventory_item.tres");
+	pickup_item.global_position = global_position;
+	get_tree().root.add_child(pickup_item);
+	
+	
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	EventBus.sg_cause_damage.emit(damage);

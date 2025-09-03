@@ -5,9 +5,12 @@ extends CharacterBody2D
 @onready var weapon: Area2D = $Weapon
 @onready var weapon_collision_shape_2d: CollisionShape2D = $Weapon/CollisionShape2D
 @onready var weapon_sprite_2d: Sprite2D = $Weapon/Sprite2D
-
+@export var health = 100;
+@export var max_health = 100;
 
 @export var speed = 50;
+
+
 var face_direction:Vector2 = Vector2.ZERO;
 var speed_direction:Vector2 = Vector2.ZERO;
 enum PlayerState { IDLE, WALK, ATTACK }
@@ -20,6 +23,18 @@ func _ready() -> void:
 	changeState(PlayerState.IDLE);
 	animated_sprite_2d.animation_finished.connect(on_animation_finished);
 	InventoryManager.sg_weapon_change.connect(on_weapon_change);
+	EventBus.sg_cause_damage.connect(on_cause_damage);
+	
+	await get_tree().physics_frame;
+	var game_ui:GameUI = get_tree().get_first_node_in_group("GameUI");
+	game_ui.set_health(health,max_health);
+	
+
+func on_cause_damage(damage:int):
+	health -= damage;
+	var game_ui:GameUI = get_tree().get_first_node_in_group("GameUI");
+	game_ui.set_health(health,max_health);
+	
 	
 
 func _physics_process(delta: float) -> void:

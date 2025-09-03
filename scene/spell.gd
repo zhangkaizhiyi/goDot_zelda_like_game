@@ -7,6 +7,7 @@ extends Area2D
 @export var current_spell_item:SpellItem;
 
 @export var speed:int;
+@export var damage:int = 10;
 @export var move_direction:Vector2;
 
 func set_config(spell_item:SpellItem,direction:Vector2) -> void:
@@ -18,3 +19,12 @@ func set_config(spell_item:SpellItem,direction:Vector2) -> void:
 
 func _process(delta: float) -> void:
 	position += speed * move_direction * delta;
+
+
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Enermy:
+		body.apply_damage(damage);
+		queue_free();

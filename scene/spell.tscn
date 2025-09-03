@@ -5,6 +5,8 @@
 [ext_resource type="Shape2D" uid="uid://p6xytgw18tpk" path="res://resource/spell/ice/ice_collsion_shape.tres" id="2_myuhy"]
 
 [node name="Spell" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
 script = ExtResource("1_jhbxe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -14,3 +16,5 @@ animation = &"ice"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = ExtResource("2_myuhy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
