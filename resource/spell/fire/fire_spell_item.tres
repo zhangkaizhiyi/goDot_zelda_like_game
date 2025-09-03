@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpellItem" load_steps=5 format=3 uid="uid://bqsc7ifrakdio"]
+
+[ext_resource type="SpriteFrames" uid="uid://chcoap8r4kmod" path="res://resource/spell/fire/fire_animate.tres" id="1_x7joo"]
+[ext_resource type="Shape2D" uid="uid://urp7rcjnkyw2" path="res://resource/spell/fire/fire_collsion_shape.tres" id="2_x7joo"]
+[ext_resource type="Script" uid="uid://dy0bfc80vwe2v" path="res://script/spell_item.gd" id="3_4nojq"]
+[ext_resource type="Texture2D" uid="uid://dvbdi7c2hxib2" path="res://assets/Items/Scroll/ScrollFire.png" id="4_x7joo"]
+
+[resource]
+script = ExtResource("3_4nojq")
+texture = ExtResource("4_x7joo")
+collsion_shape = ExtResource("2_x7joo")
+animte = ExtResource("1_x7joo")
+name = ""
+speed = 20
+metadata/_custom_type_script = "uid://dy0bfc80vwe2v"

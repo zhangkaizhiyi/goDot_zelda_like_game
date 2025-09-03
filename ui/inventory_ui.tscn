@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvejj2js86cs2"]
+[gd_scene load_steps=8 format=3 uid="uid://dvejj2js86cs2"]
 
 [ext_resource type="Texture2D" uid="uid://c2lxpuguj1bhc" path="res://assets/Ui/Dialog/DialogBox.png" id="1_7v2e4"]
 [ext_resource type="Script" uid="uid://rhuuqsefv1sl" path="res://ui/inventory_ui.gd" id="1_j1vmf"]
 [ext_resource type="Theme" uid="uid://btuhhapqa0pas" path="res://resource/theme/game_theme.tres" id="3_j1vmf"]
+[ext_resource type="PackedScene" uid="uid://dc3fk4sa7ey5n" path="res://ui/inventory_item_cell.tscn" id="4_lsmr7"]
+[ext_resource type="Texture2D" uid="uid://dvbdi7c2hxib2" path="res://assets/Items/Scroll/ScrollFire.png" id="5_ihvlr"]
+[ext_resource type="Texture2D" uid="uid://c56q68486eqyb" path="res://assets/Items/Scroll/ScrollIce.png" id="6_iecdl"]
+[ext_resource type="Texture2D" uid="uid://cr2do5ovbjy0i" path="res://assets/Items/Scroll/ScrollPlant.png" id="7_iecdl"]
 
 [node name="InventoryUI" type="CanvasLayer"]
 script = ExtResource("1_j1vmf")
@@ -13,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_j1vmf")
 color = Color(0.0235294, 0, 0.0156863, 0.105882)
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
@@ -43,16 +48,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer"]
 layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_j1vmf")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -60,8 +71,48 @@ theme_override_font_sizes/font_size = 37
 text = "Inventory"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 10
 columns = 4
+
+[node name="SpellContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Spell"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InventoryItemCell" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer/HBoxContainer" instance=ExtResource("4_lsmr7")]
+layout_mode = 2
+type = 1
+
+[node name="TextureRect" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer/HBoxContainer/InventoryItemCell/Container" index="0"]
+texture = ExtResource("5_ihvlr")
+
+[node name="InventoryItemCell2" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer/HBoxContainer" instance=ExtResource("4_lsmr7")]
+layout_mode = 2
+type = 1
+
+[node name="TextureRect" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer/HBoxContainer/InventoryItemCell2/Container" index="0"]
+texture = ExtResource("6_iecdl")
+
+[node name="InventoryItemCell3" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer/HBoxContainer" instance=ExtResource("4_lsmr7")]
+layout_mode = 2
+type = 1
+
+[node name="TextureRect" parent="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer/HBoxContainer/InventoryItemCell3/Container" index="0"]
+texture = ExtResource("7_iecdl")
+
+[editable path="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer/HBoxContainer/InventoryItemCell"]
+[editable path="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer/HBoxContainer/InventoryItemCell2"]
+[editable path="ColorRect/MarginContainer/NinePatchRect/MarginContainer/ScrollContainer/VBoxContainer/SpellContainer/HBoxContainer/InventoryItemCell3"]

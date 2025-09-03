@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bwtos2v10o1aw"]
+
+[ext_resource type="Texture2D" uid="uid://b8c5hqn2eyga2" path="res://assets/FX/Projectile/PlantSpike.png" id="3_ekun1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1aw00"]
+atlas = ExtResource("3_ekun1")
+region = Rect2(0, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbx0w"]
+atlas = ExtResource("3_ekun1")
+region = Rect2(24, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6q7n"]
+atlas = ExtResource("3_ekun1")
+region = Rect2(48, 0, 24, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs2w4"]
+atlas = ExtResource("3_ekun1")
+region = Rect2(72, 0, 24, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aw00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbx0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6q7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs2w4")
+}],
+"loop": true,
+"name": &"plant",
+"speed": 10.0
+}]

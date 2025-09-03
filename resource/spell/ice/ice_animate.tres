@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://dsmsdj0fl4hu"]
+
+[ext_resource type="Texture2D" uid="uid://ciswxsjvdjph" path="res://assets/FX/Projectile/IceSpike.png" id="2_sf5q1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exhaw"]
+atlas = ExtResource("2_sf5q1")
+region = Rect2(0, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fu0f"]
+atlas = ExtResource("2_sf5q1")
+region = Rect2(18, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny12i"]
+atlas = ExtResource("2_sf5q1")
+region = Rect2(36, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxkpn"]
+atlas = ExtResource("2_sf5q1")
+region = Rect2(54, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpdxr"]
+atlas = ExtResource("2_sf5q1")
+region = Rect2(72, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en484"]
+atlas = ExtResource("2_sf5q1")
+region = Rect2(90, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jet48"]
+atlas = ExtResource("2_sf5q1")
+region = Rect2(108, 0, 18, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4ru7"]
+atlas = ExtResource("2_sf5q1")
+region = Rect2(126, 0, 18, 10)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exhaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fu0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny12i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxkpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpdxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en484")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jet48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4ru7")
+}],
+"loop": true,
+"name": &"ice",
+"speed": 10.0
+}]

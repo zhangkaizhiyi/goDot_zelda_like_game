@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SpellItem" load_steps=5 format=3 uid="uid://dpr63dt0o0a01"]
+
+[ext_resource type="SpriteFrames" uid="uid://bwtos2v10o1aw" path="res://resource/spell/plant/plant_animate.tres" id="1_s72ux"]
+[ext_resource type="Shape2D" uid="uid://nk7q4qxdrjaa" path="res://resource/spell/plant/plant_collsion_shape.tres" id="2_s72ux"]
+[ext_resource type="Script" uid="uid://dy0bfc80vwe2v" path="res://script/spell_item.gd" id="3_3sh24"]
+[ext_resource type="Texture2D" uid="uid://cr2do5ovbjy0i" path="res://assets/Items/Scroll/ScrollPlant.png" id="4_s72ux"]
+
+[resource]
+script = ExtResource("3_3sh24")
+texture = ExtResource("4_s72ux")
+collsion_shape = ExtResource("2_s72ux")
+animte = ExtResource("1_s72ux")
+name = ""
+speed = 50
+cooldown = 5
+rotation_degress_left = 180.0
+rotation_degress_right = 0.0
+rotation_degress_front = 90.0
+rotation_degress_back = 270.0
+metadata/_custom_type_script = "uid://dy0bfc80vwe2v"

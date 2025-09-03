@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=5 format=3 uid="uid://cso1e4ed3p87b"]
+
+[ext_resource type="Script" uid="uid://c2pdlbotitrbd" path="res://script/weapon_item.gd" id="1_p4l6f"]
+[ext_resource type="Shape2D" uid="uid://8uq8tll4e3ax" path="res://resource/inventory_item/spell_book/spell_book_collsion_shape.tres" id="1_v0gw3"]
+[ext_resource type="Texture2D" uid="uid://bjijggeoxgvic" path="res://assets/Items/Weapons/Book/Sprite.png" id="2_ij4l5"]
+[ext_resource type="Texture2D" uid="uid://c0p37yqh4wjd8" path="res://assets/Items/Weapons/Book/SpriteInHand.png" id="4_i5cwh"]
+
+[resource]
+script = ExtResource("1_p4l6f")
+weapon_type = 1
+texture_in_hand = ExtResource("4_i5cwh")
+texture_rotation_degress_left = 90.0
+texture_rotation_degress_right = 270.0
+texture_rotation_degress_front = 0.0
+texture_rotation_degress_back = 180.0
+texture_position_left = Vector2(-12, 4)
+texture_position_right = Vector2(12, 4)
+texture_position_front = Vector2(0, 12)
+texture_position_back = Vector2(-3, -12)
+texture = ExtResource("2_ij4l5")
+collsion_shape = ExtResource("1_v0gw3")
+name = "spell_book"

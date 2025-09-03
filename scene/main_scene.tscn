@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://dygg7jsh2ccnr"]
+[gd_scene load_steps=11 format=4 uid="uid://dygg7jsh2ccnr"]
 
 [ext_resource type="TileSet" uid="uid://bccafxgg1k3gg" path="res://tileset/game_tile_set.tres" id="1_wgwml"]
 [ext_resource type="PackedScene" uid="uid://bo8ks5i1lrop6" path="res://scene/player.tscn" id="2_ry1uq"]
 [ext_resource type="PackedScene" uid="uid://dvejj2js86cs2" path="res://ui/inventory_ui.tscn" id="3_fb1ex"]
 [ext_resource type="PackedScene" uid="uid://4oshbbrnvj0d" path="res://scene/pickupItem/pickup_item.tscn" id="4_4wnd8"]
 [ext_resource type="Resource" uid="uid://blcl1jcia5wfg" path="res://resource/inventory_item/gold/gold_inventory_item.tres" id="5_pi0uh"]
+[ext_resource type="Resource" uid="uid://cso1e4ed3p87b" path="res://resource/inventory_item/spell_book/spell_book.tres" id="6_86xya"]
 [ext_resource type="Resource" uid="uid://7be80i5qpqkb" path="res://resource/inventory_item/honey/honey_inventory_item.tres" id="6_hrphr"]
+[ext_resource type="PackedScene" uid="uid://bu8jjsdl144gm" path="res://scene/enermy/enermy.tscn" id="7_86xya"]
 [ext_resource type="PackedScene" uid="uid://c3sqodu67i1xf" path="res://ui/game_ui.tscn" id="7_pi0uh"]
 [ext_resource type="Resource" uid="uid://cdsfstjn60g3p" path="res://resource/inventory_item/sword/sword_inventory_item.tres" id="7_qvu5t"]
 
@@ -33,6 +35,30 @@ inventory_item = ExtResource("6_hrphr")
 [node name="Sword" parent="." instance=ExtResource("4_4wnd8")]
 position = Vector2(136, -139)
 inventory_item = ExtResource("7_qvu5t")
+
+[node name="SpellBook" parent="." instance=ExtResource("4_4wnd8")]
+position = Vector2(157, -159)
+inventory_item = ExtResource("6_86xya")
+
+[node name="Spells" type="Node2D" parent="."]
+
+[node name="Enermy" parent="." node_paths=PackedStringArray("move_path_array") instance=ExtResource("7_86xya")]
+position = Vector2(169, -92)
+move_path_array = [NodePath("../EnermyPath/Marker2D"), NodePath("../EnermyPath/Marker2D2"), NodePath("../EnermyPath/Marker2D3"), NodePath("../EnermyPath/Marker2D4")]
+
+[node name="EnermyPath" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnermyPath"]
+position = Vector2(186, -93)
+
+[node name="Marker2D2" type="Marker2D" parent="EnermyPath"]
+position = Vector2(280, -93)
+
+[node name="Marker2D3" type="Marker2D" parent="EnermyPath"]
+position = Vector2(262, -14)
+
+[node name="Marker2D4" type="Marker2D" parent="EnermyPath"]
+position = Vector2(154, -10)
 
 [node name="Player" parent="." instance=ExtResource("2_ry1uq")]
 position = Vector2(90, -173)

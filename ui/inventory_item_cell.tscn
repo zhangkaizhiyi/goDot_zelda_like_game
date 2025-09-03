@@ -5,14 +5,16 @@
 [ext_resource type="Script" uid="uid://d3d80wbxb7d53" path="res://ui/inventory_item_cell.gd" id="2_m5mkn"]
 
 [node name="InventoryItemCell" type="VBoxContainer"]
+custom_minimum_size = Vector2(64, 80)
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_q4bi8")
 script = ExtResource("2_m5mkn")
 
 [node name="Container" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("1_58dws")
 
 [node name="TextureRect" type="TextureRect" parent="Container"]
@@ -43,7 +45,6 @@ offset_right = -7.0
 offset_bottom = -3.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "10"
 
 [node name="MenuButton" type="MenuButton" parent="Container"]
 layout_mode = 1
@@ -53,7 +54,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Button" type="Button" parent="Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"SelectedButton"
+
 [node name="lbName" type="Label" parent="."]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
+
+[connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]

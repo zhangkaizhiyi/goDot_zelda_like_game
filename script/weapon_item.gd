@@ -2,6 +2,9 @@ class_name WeaponItem
 extends InventoryItem
 
 
+
+
+@export var weapon_type:DataType.WeaponType;
 @export var texture_in_hand:Texture
 @export var collsion_shape_in_hand:Shape2D;
 @export_group('rotation_degress')

@@ -14,6 +14,7 @@ enum PlayerState { IDLE, WALK, ATTACK }
 var current_state = PlayerState.IDLE
 var current_weapon:WeaponItem;
 
+signal sg_spell_cast(spell:SpellItem);
 
 func _ready() -> void:
 	changeState(PlayerState.IDLE);
@@ -107,7 +108,7 @@ func changeAttackAnimate(direction:Vector2):
 func changeWeaponDisplay(direction:Vector2):
 	var rotation:float = current_weapon.texture_rotation_degress(direction);
 	var position:Vector2 = current_weapon.texture_position(direction);
-	#print("rotation",rotation);
+	#prinDt("rotation",rotation);
 	weapon.rotation = deg_to_rad(rotation);
 	weapon.position = position;
 
@@ -134,3 +135,7 @@ func changeState(state:PlayerState):
 			weapon.visible = true;
 			changeWeaponDisplay(face_direction);
 		changeAttackAnimate(face_direction)
+
+		if current_weapon.weapon_type == DataType.WeaponType.Magic:
+			if InventoryManager.current_spell != null:
+				sg_spell_cast.emit(InventoryManager.current_spell);

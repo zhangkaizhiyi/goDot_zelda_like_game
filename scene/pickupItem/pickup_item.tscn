@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://4oshbbrnvj0d"]
 
-[ext_resource type="Texture2D" uid="uid://cxi5agkvfuyty" path="res://assets/Items/Treasure/GoldCoin.png" id="1_as327"]
 [ext_resource type="Script" uid="uid://cxas4j6b30tgi" path="res://scene/pickupItem/pickup_item.gd" id="1_o4n17"]
-[ext_resource type="Shape2D" uid="uid://b8cag36s70bqd" path="res://resource/inventory_item/gold/gold_collsion_shape.tres" id="3_38hnm"]
+[ext_resource type="Texture2D" uid="uid://bjijggeoxgvic" path="res://assets/Items/Weapons/Book/Sprite.png" id="2_f5mbv"]
+[ext_resource type="Shape2D" uid="uid://8uq8tll4e3ax" path="res://resource/inventory_item/spell_book/spell_book_collsion_shape.tres" id="3_38hnm"]
 
 [node name="PickupItem" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_o4n17")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_as327")
+texture = ExtResource("2_f5mbv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_38hnm")
