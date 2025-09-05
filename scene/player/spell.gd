@@ -20,11 +20,8 @@ func set_config(spell_item:SpellItem,direction:Vector2) -> void:
 func _process(delta: float) -> void:
 	position += speed * move_direction * delta;
 
-
-
-
-
 func _on_body_entered(body: Node2D) -> void:
-	if body is Enermy:
-		body.apply_damage(damage);
+	if body.has_node("HealthSystem"):
+		var health_system:HealthSystem = body.get_node('HealthSystem');
+		health_system.apply_damage(damage);
 		queue_free();

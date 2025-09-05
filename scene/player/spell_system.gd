@@ -1,6 +1,6 @@
 class_name SpellSystem
 extends Node
-var spell_scene = preload("res://scene/spell.tscn");
+var spell_scene = preload("res://scene/player/spell.tscn");
 var is_cool_down = false;
 var timer = Timer.new();
 

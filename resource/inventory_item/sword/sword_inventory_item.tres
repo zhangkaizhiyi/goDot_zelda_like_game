@@ -7,7 +7,9 @@
 
 [resource]
 script = ExtResource("1_22v42")
+weapon_type = 0
 texture_in_hand = ExtResource("4_ucnlk")
+damage = 10
 texture_rotation_degress_left = 90.0
 texture_rotation_degress_right = 270.0
 texture_rotation_degress_front = 0.0

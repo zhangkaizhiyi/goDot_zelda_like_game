@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dh887278j1p4f" path="res://assets/Actor/Monsters/Beast/Beast.png" id="1_3d4bg"]
 [ext_resource type="Script" uid="uid://cjk78se5emq0u" path="res://scene/enermy/enermy.gd" id="1_6njwc"]
 [ext_resource type="Texture2D" uid="uid://55fwy3y3addy" path="res://assets/FX/Smoke/Smoke/SpriteSheet.png" id="2_ry1li"]
-[ext_resource type="Script" uid="uid://do5gtqkqpaavr" path="res://scene/enermy/health_system.gd" id="3_6rm33"]
+[ext_resource type="Script" uid="uid://do5gtqkqpaavr" path="res://scene/component/health_system.gd" id="3_6rm33"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17pbp"]
 atlas = ExtResource("2_ry1li")
@@ -253,7 +253,8 @@ script = ExtResource("1_6njwc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_17pbp")
-animation = &"die"
+animation = &"idle_front"
+autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3d4bg")
@@ -277,7 +278,7 @@ shape = SubResource("RectangleShape2D_6njwc")
 
 [node name="HealthSystem" type="Node" parent="."]
 script = ExtResource("3_6rm33")
-health = 40
+health = 20
 max_health = 20
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

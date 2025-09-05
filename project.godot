@@ -31,6 +31,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 GameUI=""
+Player=""
 
 [input]
 
@@ -72,6 +73,7 @@ attack={
 2d_physics/layer_3="PickupItem"
 2d_physics/layer_4="Enermy"
 2d_physics/layer_5="Weapon"
+2d_physics/layer_6="Entrance"
 
 [rendering]
 

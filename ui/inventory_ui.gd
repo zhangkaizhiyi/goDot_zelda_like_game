@@ -37,20 +37,32 @@ func _ready() -> void:
 	spell_cell_0.sg_click.connect(on_sg_click);
 	spell_cell_1.sg_click.connect(on_sg_click);
 	spell_cell_2.sg_click.connect(on_sg_click);
-	InventoryManager.sg_inventory_size_change.connect(on_inventory_size_change);
+	InventoryManager.sg_inventory_add_item.connect(on_inventory_add_item);
+	InventoryManager.sg_inventory_remove_item.connect(on_inventory_remove_item);
 	InventoryManager.sg_weapon_change.connect(on_weapon_change);
 
-func on_inventory_size_change(item:InventoryItem,size:int):
+func on_inventory_add_item(item:InventoryItem):
 	var itemCells = grid_container.get_children();
 	for i in itemCells.size():
 		var itemCell:InventoryItemCell = itemCells[i] as InventoryItemCell;
-		if itemCell.is_empty:
+		if itemCell.is_empty or itemCell.current_inventory_item.name == item.name:
 			itemCell.add_item(item);
 			return;
+			
+func on_inventory_remove_item(item:InventoryItem):
+	var itemCells = grid_container.get_children();
+	for i in itemCells.size():
+		var itemCell:InventoryItemCell = itemCells[i] as InventoryItemCell;
+		if itemCell.current_inventory_item.name == item.name:
+			itemCell.remove_item(item);
+			return;		
+	
 	
 func on_weapon_change(weapon:WeaponItem):
 	if weapon.weapon_type == DataType.WeaponType.Magic:
 		spell_container.visible = true;
+	else:
+		spell_container.visible = false;
 		
 func on_sg_click(spell:SpellItem):
 	InventoryManager.equip_spell(spell);

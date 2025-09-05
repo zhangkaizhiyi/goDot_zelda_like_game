@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://dygg7jsh2ccnr"]
+[gd_scene load_steps=12 format=4 uid="uid://dygg7jsh2ccnr"]
 
 [ext_resource type="TileSet" uid="uid://bccafxgg1k3gg" path="res://tileset/game_tile_set.tres" id="1_wgwml"]
-[ext_resource type="PackedScene" uid="uid://bo8ks5i1lrop6" path="res://scene/player.tscn" id="2_ry1uq"]
+[ext_resource type="PackedScene" uid="uid://bo8ks5i1lrop6" path="res://scene/player/player.tscn" id="2_ry1uq"]
 [ext_resource type="PackedScene" uid="uid://dvejj2js86cs2" path="res://ui/inventory_ui.tscn" id="3_fb1ex"]
 [ext_resource type="PackedScene" uid="uid://4oshbbrnvj0d" path="res://scene/pickupItem/pickup_item.tscn" id="4_4wnd8"]
 [ext_resource type="Resource" uid="uid://blcl1jcia5wfg" path="res://resource/inventory_item/gold/gold_inventory_item.tres" id="5_pi0uh"]
@@ -10,10 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://bu8jjsdl144gm" path="res://scene/enermy/enermy.tscn" id="7_86xya"]
 [ext_resource type="PackedScene" uid="uid://c3sqodu67i1xf" path="res://ui/game_ui.tscn" id="7_pi0uh"]
 [ext_resource type="Resource" uid="uid://cdsfstjn60g3p" path="res://resource/inventory_item/sword/sword_inventory_item.tres" id="7_qvu5t"]
+[ext_resource type="PackedScene" uid="uid://18gxu48ra1l8" path="res://scene/house/shop.tscn" id="11_cj0ow"]
 
 [node name="MainScene" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMap" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Ground" type="TileMapLayer" parent="TileMap"]
 position = Vector2(-31, -355)
@@ -26,6 +29,10 @@ tile_set = ExtResource("1_wgwml")
 
 [node name="Gold" parent="." instance=ExtResource("4_4wnd8")]
 position = Vector2(62, -138)
+inventory_item = ExtResource("5_pi0uh")
+
+[node name="Gold2" parent="." instance=ExtResource("4_4wnd8")]
+position = Vector2(80, -138)
 inventory_item = ExtResource("5_pi0uh")
 
 [node name="Honey" parent="." instance=ExtResource("4_4wnd8")]
@@ -60,7 +67,12 @@ position = Vector2(262, -14)
 [node name="Marker2D4" type="Marker2D" parent="EnermyPath"]
 position = Vector2(154, -10)
 
+[node name="Shop" parent="." instance=ExtResource("11_cj0ow")]
+y_sort_enabled = true
+position = Vector2(76, -231)
+
 [node name="Player" parent="." instance=ExtResource("2_ry1uq")]
+y_sort_enabled = true
 position = Vector2(90, -173)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

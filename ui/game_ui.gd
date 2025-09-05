@@ -14,12 +14,17 @@ func set_health(current_health:int,max_health:int):
 
 func _ready() -> void:
 	InventoryManager.sg_weapon_change.connect(on_weapon_change);
+	InventoryManager.sg_weapon_unequip.connect(on_weapon_unequip);
 	InventoryManager.sg_spell_change.connect(on_spell_change);
 	InventoryManager.sg_spell_cooldown.connect(on_spell_cooldown);
 
 func on_weapon_change(weapon:WeaponItem):
 	left_hand_solt.add_item(weapon);
-
+	
+func on_weapon_unequip():
+	left_hand_solt.remove_weapon();
+	
+	
 func on_spell_change(spell:SpellItem):
 	magic_solt.visible = true;
 	magic_solt.add_spell(spell);

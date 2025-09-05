@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://7mo813unke7e"]
 
 [ext_resource type="SpriteFrames" uid="uid://dsmsdj0fl4hu" path="res://resource/spell/ice/ice_animate.tres" id="1_7fl3d"]
-[ext_resource type="Script" uid="uid://khp1m6wjj27u" path="res://scene/spell.gd" id="1_jhbxe"]
+[ext_resource type="Script" uid="uid://khp1m6wjj27u" path="res://scene/player/spell.gd" id="1_jhbxe"]
 [ext_resource type="Shape2D" uid="uid://p6xytgw18tpk" path="res://resource/spell/ice/ice_collsion_shape.tres" id="2_myuhy"]
 
 [node name="Spell" type="Area2D"]

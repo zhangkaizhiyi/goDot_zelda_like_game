@@ -1,9 +1,9 @@
 [gd_scene load_steps=31 format=3 uid="uid://bo8ks5i1lrop6"]
 
-[ext_resource type="Script" uid="uid://bs13lh2or2o6b" path="res://scene/player.gd" id="1_hjaqi"]
+[ext_resource type="Script" uid="uid://bs13lh2or2o6b" path="res://scene/player/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://dwwgcx36cnyxi" path="res://assets/Actor/Characters/Boy/SpriteSheet.png" id="1_xo3ru"]
 [ext_resource type="Texture2D" uid="uid://c0p37yqh4wjd8" path="res://assets/Items/Weapons/Book/SpriteInHand.png" id="3_ct4mp"]
-[ext_resource type="Script" uid="uid://dpuotvg8ihqmx" path="res://scene/spell_system.gd" id="4_ct4mp"]
+[ext_resource type="Script" uid="uid://dpuotvg8ihqmx" path="res://scene/player/spell_system.gd" id="4_ct4mp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kk4ol"]
 atlas = ExtResource("1_xo3ru")
@@ -237,9 +237,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo3ru"]
-size = Vector2(15, 14)
+size = Vector2(13, 9)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
 script = ExtResource("1_hjaqi")
 
@@ -249,11 +249,13 @@ animation = &"attack_right"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
+position = Vector2(0.5, 3.5)
 shape = SubResource("RectangleShape2D_xo3ru")
 
 [node name="Weapon" type="Area2D" parent="."]
 visible = false
+collision_layer = 16
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon"]
 texture = ExtResource("3_ct4mp")
@@ -262,3 +264,5 @@ texture = ExtResource("3_ct4mp")
 
 [node name="SpellSystem" type="Node" parent="."]
 script = ExtResource("4_ct4mp")
+
+[connection signal="body_entered" from="Weapon" to="." method="_on_weapon_body_entered"]
